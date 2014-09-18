@@ -136,6 +136,10 @@ PRODUCT_PACKAGES += \
     Apollo \
     CMFileManager \
     LockClock \
+<<<<<<< HEAD
+=======
+    CMUpdater \
+>>>>>>> 2eb363f... cm: CMFota should not be defined here.
     CMAccount \
     CMHome
 
