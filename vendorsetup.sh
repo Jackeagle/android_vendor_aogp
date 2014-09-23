@@ -1,2 +1,7 @@
 add_lunch_combo aogp_hammerhead-userdebug
+add_lunch_combo aogp_mako-userdebug
+add_lunch_combo aogp_i9802-userdebug
 add_lunch_combo aogp_i9300-userdebug
+add_lunch_combo aogp_i9500-userdebug
+add_lunch_combo aogp_n7000-userdebug
+add_lunch_combo aogp_n7100-userdebug
