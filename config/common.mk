@@ -224,7 +224,7 @@ endif
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/aogp/overlay/common
 
-# Inherit common build.prop overrides
+# Inherit Versioning System Of AOGP
 -include vendor/aogp/config/common_versions.mk
 
 # by default, do not update the recovery with system updates
