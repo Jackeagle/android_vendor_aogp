@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
     LockClock \
     CMUpdater \
     CMAccount \
-    CMHome
+    CMHome 
 
 # Custom AOGP packages
 PRODUCT_PACKAGES += \
