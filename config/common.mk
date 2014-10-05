@@ -140,10 +140,6 @@ PRODUCT_PACKAGES += \
     CMAccount \
     CMHome 
 
-# Custom AOGP packages
-PRODUCT_PACKAGES += \
-    AboutAOGP
-
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
     org.cyanogenmod.hardware \
