@@ -20,8 +20,8 @@ endif
 ifdef AOGP_BUILDTYPE
 else
     AOGP_BUILDTYPE := UNOFFICIAL
-    AOGP_VERSION_MAJOR :=
-    AOGP_VERSION_MINOR :=
+    AOGP_VERSION_MAJOR := 1
+    AOGP_VERSION_MINOR := 0
 endif
 
 # Set AOGP version
