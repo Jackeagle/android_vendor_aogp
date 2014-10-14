@@ -138,7 +138,8 @@ PRODUCT_PACKAGES += \
     LockClock \
     CMUpdater \
     CMAccount \
-    CMHome 
+    CMHome \
+    KernelTweaker
 
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
