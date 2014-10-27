@@ -198,7 +198,30 @@ fi # Skip Squisher
 
 # Create a md5 checksum image of the repacked package
 ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
-echo -e
+echo -e $CL_BLU"                                                                                                        "$CL_BLU
+echo -e $CL_BLU"                                                                                                        "$CL_BLU
+echo -e $CL_BLU"         /\_   \                 /::\    \                 /\    \                  /\    \             "$CL_BLU
+echo -e $CL_BLU"        /::\    \               /::::\    \               /::\    \                /::\    \            "$CL_BLU
+echo -e $CL_BLU"       /::::\    \             /::::::\    \             /::::\    \              /::::\    \           "$CL_BLU
+echo -e $CL_BLU"      /::::::\    \           /::::::::\    \           /::::::\    \            /::::::\    \          "$CL_BLU
+echo -e $CL_BLU"     /:::/\:::\    \         /:::/~~\:::\    \         /:::/\:::\    \          /:::/\:::\    \         "$CL_BLU
+echo -e $CL_BLU"    /:::/__\:::\    \       /:::/    \:::\    \       /:::/  \:::\    \        /:::/__\:::\    \        "$CL_BLU
+echo -e $CL_BLU"   /::::\   \:::\    \     /:::/    / \:::\    \     /:::/    \:::\    \      /::::\   \:::\    \       "$CL_BLU
+echo -e $CL_BLU"  /::::::\   \:::\    \   /:::/____/   \:::\____\   /:::/    / \:::\    \    /::::::\   \:::\    \      "$CL_BLU
+echo -e $CL_BLU" /:::/\:::\   \:::\    \ |:::|    |     |:::|    | /:::/    /   \:::\ ___\  /:::/\:::\   \:::\____\     "$CL_BLU
+echo -e $CL_BLU"/:::/  \:::\   \:::\____\|:::|____|     |:::|    |/:::/____/  ___\:::|    |/:::/  \:::\   \:::|    |    "$CL_BLU
+echo -e $CL_BLU"\::/    \:::\  /:::/    / \:::\    \   /:::/    / \:::\    \ /\  /:::|____|\::/    \:::\  /:::|____|    "$CL_BLU
+echo -e $CL_BLU" \/____/ \:::\/:::/    /   \:::\    \ /:::/    /   \:::\    /::\ \::/    /  \/_____/\:::\/:::/    /     "$CL_BLU
+echo -e $CL_BLU"          \::::::/    /     \:::\    /:::/    /     \:::\   \:::\ \/____/            \::::::/    /      "$CL_BLU
+echo -e $CL_BLU"           \::::/    /       \:::\__/:::/    /       \:::\   \:::\____\               \::::/    /       "$CL_BLU
+echo -e $CL_BLU"          /:::/    /         \::::::::/    /         \:::\  /:::/    /                \::/____/         "$CL_BLU
+echo -e $CL_BLU"          /:::/    /           \::::::/    /           \:::\/:::/    /                  ~~              "$CL_BLU
+echo -e $CL_BLU"         /:::/    /             \::::/    /             \::::::/    /                                   "$CL_BLU
+echo -e $CL_BLU"        /:::/    /               \::/____/               \::::/    /                                    "$CL_BLU
+echo -e $CL_BLU"        \::/    /                 ~~                      \::/____/                                     "$CL_BLU
+echo -e $CL_BLU"        \/____/                                                                                         "$CL_BLU
+echo -e $CL_BLU"                                                                                                        "$CL_BLU
+echo -e $CL_BLU"                                                                                                        "$CL_BLU
 echo -e ${CL_CYN}"===========-Package complete-==========="${CL_RST}
 echo -e ${CL_CYN}"zip:"${CL_MAG}" $OUTFILE"${CL_RST}
 echo -e ${CL_CYN}"md5:"${CL_MAG}" $(cat $OUTFILE.md5sum | awk '{ print $1 }')"${CL_RST}
