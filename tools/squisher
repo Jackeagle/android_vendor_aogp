@@ -5,11 +5,12 @@
 # cyanogen
 # AOKP
 # Nameless
+# AOGP
 
 # Uncomment to debug
 #set -x
 
-. $ANDROID_BUILD_TOP/vendor/nameless/tools/functions
+. $ANDROID_BUILD_TOP/vendor/aogp/tools/functions
 
 OUTFILE=$1
 
@@ -56,7 +57,7 @@ if [ ! -f "$OTAPACKAGE" ]; then
 	exit 1
 fi
 
-OPTICHARGER=$ANDROID_BUILD_TOP/vendor/nameless/tools/opticharger
+OPTICHARGER=$ANDROID_BUILD_TOP/vendor/aogp/tools/opticharger
 QUIET=-q
 DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
@@ -178,9 +179,9 @@ rm -rf $REPACK/ota/recovery
 echo -e ${CL_CYN}"Zipping package..."${CL_RST}
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
 echo -e ${CL_CYN}"Signing package..."${CL_RST}
-if [ -f "$ANDROID_BUILD_TOP/vendor/nameless/private/keys/ota.x509.pem" ] && [ -f "$ANDROID_BUILD_TOP/vendor/nameless/private/keys/ota.pk8" ]; then
+if [ -f "$ANDROID_BUILD_TOP/vendor/aogp/private/keys/ota.x509.pem" ] && [ -f "$ANDROID_BUILD_TOP/vendor/aogp/private/keys/ota.pk8" ]; then
 	echo -e ${CL_GRN}"Nice, using private keys"${CL_RST}
-	SECURITYDIR=$ANDROID_BUILD_TOP/vendor/nameless/private/keys/ota
+	SECURITYDIR=$ANDROID_BUILD_TOP/vendor/aogp/private/keys/ota
 else
 	SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security/testkey
 fi

@@ -56,9 +56,9 @@ rm -f ${outputfile}
 rm -f ${tmpfile}
 
 # Head
-echo -n '<!DOCTYPE html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>NamelessRom - Changelog</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></head>' >> ${outputfile}
+echo -n '<!DOCTYPE html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>AOGPRom - Changelog</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></head>' >> ${outputfile}
 # Body
-echo -n '<body style="background:#f9f9f9;"><div class="container"><h1>NamelessRom&nbsp;<small>'${changes_since}'</small></h1><h4 style="padding-top:10px;padding-bottom:20px;">'${update_name}'&nbsp;<small>'${update_md5}'</small></h4><ul class="list-group">' >> ${outputfile}
+echo -n '<body style="background:#f9f9f9;"><div class="container"><h1>AOGPRom&nbsp;<small>'${changes_since}'</small></h1><h4 style="padding-top:10px;padding-bottom:20px;">'${update_name}'&nbsp;<small>'${update_md5}'</small></h4><ul class="list-group">' >> ${outputfile}
 
 # Find the directories to log
 find ${rdir} -path ${rdir}/.repo -prune -o -name .git -print | sed 's/\/.git//g' | sed 'N;$!P;$!D;$d' | while read line
@@ -80,7 +80,7 @@ do
             change_count=$(cat ${tmpfile}counter)
             let change_count+=1
             splitted=' ' read -r change_id change_title <<< ${line}
-            echo -n '<li class="'${project}'-content list-group-item hidden" style="background-color:#f7f7f9;margin-left:10px;"><a href="https://github.com/NamelessRom/'${project}'/commit/'${change_id}'" target="_blank"><b>'${change_id}'</b></a>&nbsp;-&nbsp;<em>'${change_title}'</em></li>' >> ${tmpfile}content
+            echo -n '<li class="'${project}'-content list-group-item hidden" style="background-color:#f7f7f9;margin-left:10px;"><a href="https://github.com/AOGPRom/'${project}'/commit/'${change_id}'" target="_blank"><b>'${change_id}'</b></a>&nbsp;-&nbsp;<em>'${change_title}'</em></li>' >> ${tmpfile}content
             echo -n ${change_count} > ${tmpfile}counter
         done
 

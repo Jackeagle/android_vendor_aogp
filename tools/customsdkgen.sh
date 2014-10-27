@@ -2,7 +2,7 @@
 
 SDK_VER=19
 CUSTOM_VER=319
-CUSTOM_NAME=nameless
+CUSTOM_NAME=aogp
 
 if [ -z "$OUT" ]; then
     echo "Please lunch a product before using this command"
@@ -21,7 +21,7 @@ SERVICESJAR=${OUTDIR}/target/common/obj/JAVA_LIBRARIES/com.android.services.tele
 
 OKHTTPJAR=${OUTDIR}/target/common/obj/JAVA_LIBRARIES/okhttp_intermediates/classes.jar
 CMHWJAR=${OUTDIR}/target/common/obj/JAVA_LIBRARIES/org.cyanogenmod.hardware_intermediates/classes.jar
-NAMELESSHWJAR=${OUTDIR}/target/common/obj/JAVA_LIBRARIES/org.namelessrom.hardware_intermediates/classes.jar
+AOGPHWJAR=${OUTDIR}/target/common/obj/JAVA_LIBRARIES/org.aogprom.hardware_intermediates/classes.jar
 
 if [ ! -f $STUBJAR ]; then
 make $STUBJAR
@@ -51,8 +51,8 @@ fi
 if [ ! -f $CMHWJAR ]; then
 make $CMHWJAR
 fi
-if [ ! -f $NAMELESSHWJAR ]; then
-make $NAMELESSHWJAR
+if [ ! -f $AOGPHWJAR ]; then
+make $AOGPHWJAR
 fi
 
 TMP_DIR=${OUTDIR}/tmp
@@ -67,7 +67,7 @@ $(cd ${TMP_DIR}; jar -xf ${SERVICESJAR})
 
 $(cd ${TMP_DIR}; jar -xf ${OKHTTPJAR})
 $(cd ${TMP_DIR}; jar -xf ${CMHWJAR})
-$(cd ${TMP_DIR}; jar -xf ${NAMELESSHWJAR})
+$(cd ${TMP_DIR}; jar -xf ${AOGPHWJAR})
 
 jar -cf ${OUTDIR}/android.jar -C ${TMP_DIR}/ .
 
@@ -87,7 +87,7 @@ cp -rf "${ANDROID_HOME}/platforms/android-${SDK_VER}" "${ANDROID_HOME}/platforms
 rm -f "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/android.jar"
 cp -f "${OUTDIR}/android.jar" "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/android.jar"
 sed -i 's/^ro\.build\.version\.sdk=.*/ro.build.version.sdk=319/g' "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/build.prop"
-sed -i 's/^ro\.build\.version\.release=.*/ro.build.version.release=4.4-nameless/g' "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/build.prop"
+sed -i 's/^ro\.build\.version\.release=.*/ro.build.version.release=4.4/g' "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/build.prop"
 sed -i 's/AndroidVersion.ApiLevel=19/AndroidVersion.ApiLevel=319/' "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/source.properties"
-sed -i 's/Pkg.Desc=/Pkg.Desc=NamelessROM /' "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/source.properties"
+sed -i 's/Pkg.Desc=/Pkg.Desc=AOGPRom /' "${ANDROID_HOME}/platforms/android-${SDK_VER}-${CUSTOM_NAME}/source.properties"
 echo "New SDK created. To build using $CUSTOM_NAME sdk select sdk version $CUSTOM_VER in Studio/ADT"
