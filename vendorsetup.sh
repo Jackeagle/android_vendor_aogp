@@ -6,3 +6,11 @@ add_lunch_combo aogp_i9500-userdebug
 add_lunch_combo aogp_n7100-userdebug
 add_lunch_combo aogp_hlte-userdebug
 add_lunch_combo aogp_klte-userdebug
+add_lunch_combo aogp_hammerhead-user
+add_lunch_combo aogp_mako-user
+add_lunch_combo aogp_i9082-user
+add_lunch_combo aogp_i9300-user
+add_lunch_combo aogp_i9500-user
+add_lunch_combo aogp_n7100-user
+add_lunch_combo aogp_hlte-user
+add_lunch_combo aogp_klte-user
