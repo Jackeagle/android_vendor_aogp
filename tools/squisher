@@ -175,6 +175,12 @@ rm -rf $REPACK/ota/recovery
 [ -d $REPACK/ota/system/lib/modules ] && \
 	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
+# Determine what to name the new signed package
+#MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $REPACK/ota/system/build.prop`
+VERSION=`sed -n -e'/ro.aogp.version/s/^.*=//p' $REPACK/ota/system/build.prop`
+MODVERSION="$VERSION"
+OUTFILE=$OUT/$MODVERSION.zip
+
 # Pack it up and sign
 echo -e ${CL_CYN}"Zipping package..."${CL_RST}
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
@@ -196,6 +202,10 @@ else
 	echo -e ${CL_CYN}"Skipping Squisher"${CL_RST}
 fi # Skip Squisher
 
+# Get AOGP Version
+eval $(grep "^AOGP_VERSION_" vendor/aogp/config/common_versions.mk | sed 's/ *//g')
+VERSION="$AOGP_VERSION_MAJOR.$AOGP_VERSION_MINOR.$AOGP_VERSION_MAINTENANCE"
+
 # Create a md5 checksum image of the repacked package
 ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
 echo -e $CL_BLU"                                                                                                        "$CL_BLU
@@ -214,19 +224,20 @@ echo -e $CL_BLU"\::/    \:::\  /:::/    / \:::\    \   /:::/    / \:::\    \ /\ 
 echo -e $CL_BLU" \/____/ \:::\/:::/    /   \:::\    \ /:::/    /   \:::\    /::\ \::/    /  \/_____/\:::\/:::/    /     "$CL_BLU
 echo -e $CL_BLU"          \::::::/    /     \:::\    /:::/    /     \:::\   \:::\ \/____/            \::::::/    /      "$CL_BLU
 echo -e $CL_BLU"           \::::/    /       \:::\__/:::/    /       \:::\   \:::\____\               \::::/    /       "$CL_BLU
-echo -e $CL_BLU"          /:::/    /         \::::::::/    /         \:::\  /:::/    /                \::/____/         "$CL_BLU
+echo -e $CL_BLU"           /:::/    /         \::::::::/    /         \:::\  /:::/    /                \::/____/        "$CL_BLU
 echo -e $CL_BLU"          /:::/    /           \::::::/    /           \:::\/:::/    /                  ~~              "$CL_BLU
 echo -e $CL_BLU"         /:::/    /             \::::/    /             \::::::/    /                                   "$CL_BLU
 echo -e $CL_BLU"        /:::/    /               \::/____/               \::::/    /                                    "$CL_BLU
 echo -e $CL_BLU"        \::/    /                 ~~                      \::/____/                                     "$CL_BLU
-echo -e $CL_BLU"        \/____/                                                                                         "$CL_BLU
+echo -e $CL_BLU"         \/____/                                                                                        "$CL_BLU
 echo -e $CL_BLU"                                                                                                        "$CL_BLU
 echo -e $CL_BLU"                                                                                                        "$CL_BLU
-echo -e ${CL_CYN}"===========-Package complete-==========="${CL_RST}
-echo -e ${CL_CYN}"zip:"${CL_MAG}" $OUTFILE"${CL_RST}
-echo -e ${CL_CYN}"md5:"${CL_MAG}" $(cat $OUTFILE.md5sum | awk '{ print $1 }')"${CL_RST}
-echo -e ${CL_CYN}"size:"${CL_MAG}" $ZIPSIZE"${CL_RST}
-echo -e ${CL_CYN}"========================================"${CL_RST}
+echo -e ${CL_CYN}"===========- AOGP Package Complete -==========="${CL_RST}
+echo -e ${CL_CYN}"Version:"${CL_MAG}" $VERSION"${CL_RST}
+echo -e ${CL_CYN}"Zip:"${CL_MAG}" $OUTFILE"${CL_RST}
+echo -e ${CL_CYN}"MD5:"${CL_MAG}" $(cat $OUTFILE.md5sum | awk '{ print $1 }')"${CL_RST}
+echo -e ${CL_CYN}"Size:"${CL_MAG}" $ZIPSIZE"${CL_RST}
+echo -e ${CL_CYN}"================================================"${CL_RST}
 echo -e
 
 exit 0
