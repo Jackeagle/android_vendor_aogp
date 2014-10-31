@@ -14,3 +14,4 @@ add_lunch_combo aogp_i9500-user
 add_lunch_combo aogp_n7100-user
 add_lunch_combo aogp_hlte-user
 add_lunch_combo aogp_klte-user
+add_lunch_combo aogp_n7000-user
